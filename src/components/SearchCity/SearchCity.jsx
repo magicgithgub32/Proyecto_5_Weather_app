@@ -40,7 +40,7 @@ const SearchCity = () => {
         <div>
           <h3>{weatherData.name}</h3>
           <p>{weatherData.weather[0].description}</p>
-          <p>Temperature: {weatherData.main.temp} °C</p>
+          <p>Temperature: {Math.round(weatherData.main.temp)} °C</p>
         </div>
       )}
     </div>

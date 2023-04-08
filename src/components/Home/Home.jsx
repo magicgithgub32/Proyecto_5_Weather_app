@@ -7,7 +7,8 @@ const API_KEY = "24988b61f758c7f57d22813264c36866";
 const Home = () => {
   const [lat, setLat] = useState(40.05);
   const [lon, setLon] = useState(0.06);
-  const [iconCode, setIconCode] = useState();
+  const [iconCode, setIconCode] = useState("");
+  const [weatherData, setWeatherData] = useState();
 
   useEffect(() => {
     const getData = async () => {
@@ -19,6 +20,7 @@ const Home = () => {
       setIconCode(res.weather[0].icon);
       setLat(res.coord.lat);
       setLon(res.coord.lon);
+      setWeatherData(res);
     };
     getData();
   }, [lon, lat]);
@@ -26,9 +28,17 @@ const Home = () => {
   const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
 
   return (
-    <Link to={`/city`}>
-      <div>{iconUrl && <img src={iconUrl} alt="weather icon"></img>}</div>
-    </Link>
+    <div className="home">
+      <h1>LOCAL WEATHER</h1>
+
+      <div>
+        {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
+        {weatherData && <h4>{Math.round(weatherData.main.temp)} °C</h4>}
+      </div>
+      <Link to={`/city`}>
+        <button>Change city</button>
+      </Link>
+    </div>
   );
 };
 
