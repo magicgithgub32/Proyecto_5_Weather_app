@@ -31,9 +31,14 @@ const Home = () => {
     <div className="home">
       <h1>LOCAL WEATHER</h1>
 
-      <div>
+      <div className="data">
         {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
-        {weatherData && <h4>{Math.round(weatherData.main.temp)} °C</h4>}
+        {weatherData && (
+          <>
+            <h3>{Math.round(weatherData.main.temp)} °C</h3>
+            <p>{weatherData.weather[0].description}</p>
+          </>
+        )}
       </div>
       <Link to={`/city`}>
         <button>Change city</button>

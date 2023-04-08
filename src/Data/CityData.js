@@ -1,8 +1,8 @@
 export const CityData = [
   {
     city: "London",
-    lat: 51.5,
-    lon: -0.11,
+    lat: 51.5074,
+    lon: -0.1278,
   },
   {
     city: "Barcelona",
@@ -16,18 +16,18 @@ export const CityData = [
   },
   {
     city: "Tokyo",
-    lat: 35.65,
-    lon: 139.83,
+    lat: 35.6895,
+    lon: 139.6917,
   },
   {
     city: "NY",
-    lat: 40.73,
-    lon: -73.93,
+    lat: 40.7128,
+    lon: -74.006,
   },
   {
-    city: "Rome",
-    lat: 41.89,
-    lon: 12.49,
+    city: "Paris",
+    lat: 48.8566,
+    lon: 2.3522,
   },
   {
     city: "Benicàssim",

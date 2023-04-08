@@ -9,17 +9,33 @@
     gap: 3rem;
     background-image: url(https://res.cloudinary.com/dxxkog06n/image/upload/v1680931300/white-cloud-blue-sky_wgxtcm.jpg);
     background-size: cover;
+  }
 
-    
+  .data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
 img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
+}
+
+h3 {
+    font-size: 60px;
 }
 
 button {
     padding: .3rem;
+    border: .5px white solid;
     border-radius: 6px;
     cursor: pointer;
+    box-shadow: 4px 4px 14px -3px rgba(0,0,0,0.75);
+    transition: var(--transition);
 }
+button:hover {
+    scale: 1.1;
+  }
+

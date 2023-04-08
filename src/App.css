@@ -2,7 +2,9 @@
   --background-color: #ffc6c7a1;
   --button-color: #ffd803;
   --primary-color: #272343;
-  --highlight-gradient: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)
+  --highlight-gradient: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+  --transition: 0.8s ease-in-out;
+  
 }
 
 * {
@@ -14,7 +16,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-h1 {
+h1, h2, h3, h4, p, button, select {
   background: var(--highlight-gradient);
   -webkit-background-clip: text;
   background-clip: text;
