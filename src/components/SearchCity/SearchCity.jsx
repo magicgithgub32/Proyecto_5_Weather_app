@@ -1,5 +1,6 @@
 import "./SearchCity.css";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { CityData } from "../../Data/CityData";
 const API_KEY = "24988b61f758c7f57d22813264c36866";
 
@@ -31,9 +32,10 @@ const SearchCity = () => {
 
   return (
     <article className="weatherApp">
-      <section>
-        <h1>WEATHER APP</h1>
-        {/* <h2>Search City</h2> */}
+      <section className="selectCity">
+        <Link to={`/`}>
+          <button>Local weather</button>
+        </Link>
         <select value={selectedCity} onChange={handleInput}>
           <option value="">Select a city</option>
           {CityData.map((city, index) => (
@@ -50,6 +52,8 @@ const SearchCity = () => {
           {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
           <h3 className="temp">{Math.round(weatherData.main.temp)} °C</h3>
           <p>{weatherData.weather[0].description}</p>
+          <p>feels like {Math.round(weatherData.main.feels_like)} °C </p>
+          <p>humidity: {weatherData.main.humidity} % </p>
         </section>
       )}
     </article>

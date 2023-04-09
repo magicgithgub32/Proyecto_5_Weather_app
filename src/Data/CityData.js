@@ -30,8 +30,13 @@ export const CityData = [
     lon: 2.3522,
   },
   {
-    city: "Benicàssim",
-    lat: 40.05,
-    lon: 0.06,
+    city: "Munich",
+    lat: 48.1372,
+    lon: 11.5755,
+  },
+  {
+    city: "Beijing",
+    lat: 39.9042,
+    lon: 116.4074,
   },
 ];

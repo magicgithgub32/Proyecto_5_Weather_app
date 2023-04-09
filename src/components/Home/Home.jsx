@@ -37,6 +37,8 @@ const Home = () => {
           <>
             <h3>{Math.round(weatherData.main.temp)} °C</h3>
             <p>{weatherData.weather[0].description}</p>
+            <p>feels like {Math.round(weatherData.main.feels_like)} °C </p>
+            <p>humidity: {weatherData.main.humidity} % </p>
           </>
         )}
       </div>
