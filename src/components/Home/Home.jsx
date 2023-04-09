@@ -2,28 +2,29 @@ import "./Home.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Home = () => {
-  const [lat, setLat] = useState(40.05);
-  const [lon, setLon] = useState(0.06);
+const Home = ({ setLocation, location }) => {
   const [iconCode, setIconCode] = useState("");
   const [weatherData, setWeatherData] = useState();
 
   useEffect(() => {
-    const getData = async () => {
+    const getData = async (lat, lon) => {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${
+        {
+          lat: location.latitude,
+          lon: location.longitude,
+        }`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${
           import.meta.env.VITE_API_KEY
         }&units=metric`
       );
       const res = await response.json();
 
       setIconCode(res.weather[0].icon);
-      setLat(res.coord.lat);
-      setLon(res.coord.lon);
+      // setLat(res.coord.lat);
+      // setLon(res.coord.lon);
       setWeatherData(res);
     };
-    getData();
-  }, [lon, lat]);
+    getData(location);
+  }, [location]);
 
   const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
 
