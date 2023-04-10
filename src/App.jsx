@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import SearchCity from "./Pages/SearchCity/SearchCity";
+import LocalForecast from "./Pages/LocalForecast/LocalForecast";
 
 import "./App.css";
 
@@ -11,6 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/city" element={<SearchCity />}></Route>
+        <Route path="/localForecast" element={<LocalForecast />}></Route>
         <Route path="*" element={<Home />}></Route>
       </Routes>
     </>

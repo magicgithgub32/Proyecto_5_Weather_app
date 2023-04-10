@@ -39,3 +39,26 @@ button:hover {
     scale: 1.1;
   }
 
+  .geo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 10px;
+    gap: 10px;
+  }
+
+  .geo > img {
+    height: 400px;
+    width: 400px;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    .geo > img {
+      height: 200px;
+      width: 200px;
+  
+    }
+  }
