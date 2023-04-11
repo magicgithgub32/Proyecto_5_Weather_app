@@ -77,12 +77,14 @@ const Home = () => {
               </>
             )}
           </div>
-          <Link to={`/city`}>
-            <button>Change city</button>
-          </Link>
-          <Link to={`/localForeCast`}>
-            <button>ForeCast</button>
-          </Link>
+          <div className="buttons">
+            <Link to={`/city`}>
+              <button>Change city</button>
+            </Link>
+            <Link to={`/localForecast`}>
+              <button>Forecast</button>
+            </Link>
+          </div>
         </div>
       )}
     </>
