@@ -1,9 +1,8 @@
 import "./LocalForecast.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import SearchCityForecast from "../SearchCityForecast/SearchCityForecast";
 
-const localForecast = () => {
+const LocalForecast = () => {
   const [weatherData, setWeatherData] = useState([]);
   const [forecastData, setForecastData] = useState([]);
 
@@ -50,8 +49,9 @@ const localForecast = () => {
         return forecast;
       }
     });
-    setForecastData(filteredData);
     console.log(filteredData);
+
+    setForecastData(filteredData);
   };
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const localForecast = () => {
               <p>Loading forecast data...</p>
             )}
           </div>
-          <Link to={`/SearchCityForecast`}>
+          <Link to={`/searchCityForecast`}>
             <button>Change city</button>
           </Link>
         </div>
@@ -98,4 +98,4 @@ const localForecast = () => {
   );
 };
 
-export default localForecast;
+export default LocalForecast;

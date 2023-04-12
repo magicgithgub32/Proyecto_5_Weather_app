@@ -1,16 +1,14 @@
-import "./LocalForecast.css";
+import "./SearchCityForecast.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CityData } from "../../Data/CityData";
 
-const searchCityForecast = () => {
+const SearchCityForecast = () => {
   const [selectedCity, setSelectedCity] = useState();
   const [weatherData, setWeatherData] = useState();
-
   const handleInput = (ev) => {
     setSelectedCity(ev.target.value);
   };
-
   useEffect(() => {
     const getData = async () => {
       if (selectedCity) {
@@ -21,7 +19,6 @@ const searchCityForecast = () => {
           }&lon=${city.lon}&appid=${import.meta.env.VITE_API_KEY}&units=metric`
         );
         const res = await response.json();
-
         setWeatherData(res.list);
         const filteredData = res.list.filter((forecast) => {
           const date = new Date();
@@ -33,19 +30,17 @@ const searchCityForecast = () => {
             return forecast;
           }
         });
-        setForecastData(filteredData);
+        setWeatherData(filteredData);
         console.log(filteredData);
       }
-
-      getData();
     };
+    getData();
   }, [selectedCity]);
-
   return (
     <article className="searchCityForecast">
       <section className="selectCityForecast">
         <Link to={`/localForecast`}>
-          <button>Local weather</button>
+          <button>Local Forecast</button>
         </Link>
         <select value={selectedCity} onChange={handleInput}>
           <option value="">Select a city</option>
@@ -60,4 +55,4 @@ const searchCityForecast = () => {
   );
 };
 
-export default searchCityForecast;
+export default SearchCityForecast;
