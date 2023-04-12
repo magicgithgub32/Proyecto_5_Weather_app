@@ -5,7 +5,9 @@ import { CityData } from "../../Data/CityData";
 
 const SearchCityForecast = () => {
   const [selectedCity, setSelectedCity] = useState();
-  const [weatherData, setWeatherData] = useState();
+  // const [weatherData, setWeatherData] = useState();
+  const [forecastData, setForecastData] = useState([]);
+
   const handleInput = (ev) => {
     setSelectedCity(ev.target.value);
   };
@@ -19,7 +21,8 @@ const SearchCityForecast = () => {
           }&lon=${city.lon}&appid=${import.meta.env.VITE_API_KEY}&units=metric`
         );
         const res = await response.json();
-        setWeatherData(res.list);
+        // setWeatherData(res.list);
+
         const filteredData = res.list.filter((forecast) => {
           const date = new Date();
           if (
@@ -30,12 +33,13 @@ const SearchCityForecast = () => {
             return forecast;
           }
         });
-        setWeatherData(filteredData);
+        setForecastData(filteredData);
         console.log(filteredData);
       }
     };
     getData();
   }, [selectedCity]);
+
   return (
     <article className="searchCityForecast">
       <section className="selectCityForecast">
@@ -44,6 +48,7 @@ const SearchCityForecast = () => {
         </Link>
         <select value={selectedCity} onChange={handleInput}>
           <option value="">Select a city</option>
+
           {CityData.map((city, index) => (
             <option key={index} value={city.city}>
               {city.city}
@@ -51,6 +56,28 @@ const SearchCityForecast = () => {
           ))}
         </select>
       </section>
+
+      {forecastData ? (
+        forecastData.map((forecast, index) => (
+          <div className="forecast-item" key={index}>
+            <p>
+              {new Date(forecast.dt_txt)
+                .toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "numeric",
+                })
+                .split("/")
+                .reverse()
+                .join("/")}
+            </p>
+
+            <p>{Math.round(forecast.main.temp)}°C</p>
+            <p>{forecast.weather[0].description}</p>
+          </div>
+        ))
+      ) : (
+        <p>Loading forecast data...</p>
+      )}
     </article>
   );
 };

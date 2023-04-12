@@ -1,6 +1,5 @@
 .localForecast {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-top: 3rem;
@@ -9,4 +8,10 @@
     gap: 3rem;
     background-image: url(https://res.cloudinary.com/dxxkog06n/image/upload/v1680931300/white-cloud-blue-sky_wgxtcm.jpg);
     background-size: cover;
+}
+
+.dataForecast {
+    display: flex;
+
+
 }

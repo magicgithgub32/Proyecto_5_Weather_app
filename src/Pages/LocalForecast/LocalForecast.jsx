@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const LocalForecast = () => {
-  const [weatherData, setWeatherData] = useState([]);
+  // const [weatherData, setWeatherData] = useState([]);
   const [forecastData, setForecastData] = useState([]);
 
   const [location, setLocation] = useState();
@@ -38,7 +38,7 @@ const LocalForecast = () => {
     );
     const res = await response.json();
 
-    setWeatherData(res.list);
+    // setWeatherData(res.list);
 
     const filteredData = res.list.filter((forecast) => {
       const date = new Date();
@@ -74,13 +74,23 @@ const LocalForecast = () => {
         </div>
       ) : (
         <div className="localForecast">
-          <h1>LOCAL FORECAST</h1>
+          <h1>LOCAL WEATHER FORECAST</h1>
 
-          <div className="data">
+          <div className="dataForecast">
             {forecastData ? (
               forecastData.map((forecast, index) => (
                 <div className="forecast-item" key={index}>
-                  <p>{forecast.dt_txt}</p>
+                  <p>
+                    {new Date(forecast.dt_txt)
+                      .toLocaleDateString("en-GB", {
+                        day: "numeric",
+                        month: "numeric",
+                      })
+                      .split("/")
+                      .reverse()
+                      .join("/")}
+                  </p>
+
                   <p>{Math.round(forecast.main.temp)}°C</p>
                   <p>{forecast.weather[0].description}</p>
                 </div>
