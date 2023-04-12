@@ -82,12 +82,11 @@ const LocalForecast = () => {
                 <div className="forecast-item" key={index}>
                   <p>
                     {new Date(forecast.dt_txt)
-                      .toLocaleDateString("en-GB", {
+                      .toLocaleDateString("es-ES", {
                         day: "numeric",
                         month: "numeric",
                       })
                       .split("/")
-                      .reverse()
                       .join("/")}
                   </p>
 

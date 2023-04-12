@@ -57,27 +57,29 @@ const SearchCityForecast = () => {
         </select>
       </section>
 
-      {forecastData ? (
-        forecastData.map((forecast, index) => (
-          <div className="forecast-item" key={index}>
-            <p>
-              {new Date(forecast.dt_txt)
-                .toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "numeric",
-                })
-                .split("/")
-                .reverse()
-                .join("/")}
-            </p>
+      <section>
+        {forecastData ? (
+          forecastData.map((forecast, index) => (
+            <div className="forecast-item" key={index}>
+              <p>
+                {new Date(forecast.dt_txt)
+                  .toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "numeric",
+                  })
+                  .split("/")
+                  .reverse()
+                  .join("/")}
+              </p>
 
-            <p>{Math.round(forecast.main.temp)}°C</p>
-            <p>{forecast.weather[0].description}</p>
-          </div>
-        ))
-      ) : (
-        <p>Loading forecast data...</p>
-      )}
+              <p>{Math.round(forecast.main.temp)}°C</p>
+              <p>{forecast.weather[0].description}</p>
+            </div>
+          ))
+        ) : (
+          <p>Loading forecast data...</p>
+        )}
+      </section>
     </article>
   );
 };
