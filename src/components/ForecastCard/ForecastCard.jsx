@@ -1,4 +1,5 @@
 import React from "react";
+import "./ForecastCard.css";
 
 function ForecastCard({ forecast }) {
   return (
@@ -12,7 +13,7 @@ function ForecastCard({ forecast }) {
           .split("/")
           .join("/")}
       </p>
-      <p>{Math.round(forecast.main.temp)}°C</p>
+      <h3>{Math.round(forecast.main.temp)}°C</h3>
       <p>{forecast.weather[0].description}</p>
     </div>
   );

@@ -70,10 +70,10 @@ const LocalForecast = () => {
           />
         </div>
       ) : (
-        <div className="localForecast">
+        <section className="localForecast">
           <h1>LOCAL WEATHER FORECAST</h1>
 
-          <div className="dataForecast">
+          <section className="dataForecast">
             {forecastData ? (
               forecastData.map((forecast, index) => (
                 <ForecastCard key={index} forecast={forecast} />
@@ -81,16 +81,16 @@ const LocalForecast = () => {
             ) : (
               <p>Loading forecast data...</p>
             )}
-          </div>
-          <div className="buttons">
+          </section>
+          <section className="buttons">
             <Link to={`/searchCityForecast`}>
               <button>Change city</button>
               <Link to={`/`}>
                 <button>Back Home</button>
               </Link>
             </Link>
-          </div>
-        </div>
+          </section>
+        </section>
       )}
     </>
   );

@@ -9,6 +9,8 @@
     gap: 3rem;
     background-image: url(https://res.cloudinary.com/dxxkog06n/image/upload/v1680931300/white-cloud-blue-sky_wgxtcm.jpg);
     background-size: cover;
+    /* background-attachment: fixed !important;
+    z-index: 1; */
 }
 
 .dataForecast {
@@ -16,13 +18,13 @@
     gap: 3rem;
 }
 
-.forecast-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-}
+@media screen and (max-width: 768px) {
+    .dataForecast {
+      display: flex;
+      flex-direction: column;
+  
+    }
+  }
 
 .buttons {
     display: flex;

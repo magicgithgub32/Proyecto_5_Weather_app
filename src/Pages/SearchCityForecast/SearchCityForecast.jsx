@@ -41,7 +41,7 @@ const SearchCityForecast = () => {
 
   return (
     <article className="searchCityForecast">
-      <section className="selectCityForecast">
+      <section className="selectCityForecastbuttons">
         <Link to={`/localForecast`}>
           <button>Local Forecast</button>
         </Link>
@@ -56,7 +56,10 @@ const SearchCityForecast = () => {
         </select>
       </section>
 
-      <section>
+      <section className="dataForecastTitle">
+        <h2>{selectedCity}</h2>
+      </section>
+      <section className="dataForecast">
         {forecastData ? (
           forecastData.map((forecast, index) => (
             <ForecastCard key={index} forecast={forecast} />
