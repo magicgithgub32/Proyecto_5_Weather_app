@@ -1,11 +1,10 @@
 import "./LocalForecast.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ForecastCard from "../../components/ForecastCard/ForecastCard";
 
 const LocalForecast = () => {
-  // const [weatherData, setWeatherData] = useState([]);
   const [forecastData, setForecastData] = useState([]);
-
   const [location, setLocation] = useState();
   const [located, setLocated] = useState();
 
@@ -37,8 +36,6 @@ const LocalForecast = () => {
       }&units=metric`
     );
     const res = await response.json();
-
-    // setWeatherData(res.list);
 
     const filteredData = res.list.filter((forecast) => {
       const date = new Date();
@@ -79,28 +76,20 @@ const LocalForecast = () => {
           <div className="dataForecast">
             {forecastData ? (
               forecastData.map((forecast, index) => (
-                <div className="forecast-item" key={index}>
-                  <p>
-                    {new Date(forecast.dt_txt)
-                      .toLocaleDateString("es-ES", {
-                        day: "numeric",
-                        month: "numeric",
-                      })
-                      .split("/")
-                      .join("/")}
-                  </p>
-
-                  <p>{Math.round(forecast.main.temp)}°C</p>
-                  <p>{forecast.weather[0].description}</p>
-                </div>
+                <ForecastCard key={index} forecast={forecast} />
               ))
             ) : (
               <p>Loading forecast data...</p>
             )}
           </div>
-          <Link to={`/searchCityForecast`}>
-            <button>Change city</button>
-          </Link>
+          <div className="buttons">
+            <Link to={`/searchCityForecast`}>
+              <button>Change city</button>
+              <Link to={`/`}>
+                <button>Back Home</button>
+              </Link>
+            </Link>
+          </div>
         </div>
       )}
     </>

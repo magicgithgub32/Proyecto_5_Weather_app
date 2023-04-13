@@ -66,7 +66,7 @@ const Home = () => {
         <div className="home">
           <h1>LOCAL WEATHER</h1>
 
-          <div className="dataForecast">
+          <div className="data">
             {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
             {weatherData && (
               <>

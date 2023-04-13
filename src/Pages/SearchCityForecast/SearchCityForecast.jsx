@@ -2,10 +2,10 @@ import "./SearchCityForecast.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CityData } from "../../Data/CityData";
+import ForecastCard from "../../components/ForecastCard/ForecastCard";
 
 const SearchCityForecast = () => {
   const [selectedCity, setSelectedCity] = useState();
-  // const [weatherData, setWeatherData] = useState();
   const [forecastData, setForecastData] = useState([]);
 
   const handleInput = (ev) => {
@@ -21,7 +21,6 @@ const SearchCityForecast = () => {
           }&lon=${city.lon}&appid=${import.meta.env.VITE_API_KEY}&units=metric`
         );
         const res = await response.json();
-        // setWeatherData(res.list);
 
         const filteredData = res.list.filter((forecast) => {
           const date = new Date();
@@ -60,21 +59,7 @@ const SearchCityForecast = () => {
       <section>
         {forecastData ? (
           forecastData.map((forecast, index) => (
-            <div className="forecast-item" key={index}>
-              <p>
-                {new Date(forecast.dt_txt)
-                  .toLocaleDateString("en-GB", {
-                    day: "numeric",
-                    month: "numeric",
-                  })
-                  .split("/")
-                  .reverse()
-                  .join("/")}
-              </p>
-
-              <p>{Math.round(forecast.main.temp)}°C</p>
-              <p>{forecast.weather[0].description}</p>
-            </div>
+            <ForecastCard key={index} forecast={forecast} />
           ))
         ) : (
           <p>Loading forecast data...</p>
