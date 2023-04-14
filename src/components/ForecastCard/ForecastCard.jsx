@@ -27,8 +27,23 @@ const ForecastCard = ({ forecast }) => {
         <img src="http://openweathermap.org/img/wn/01d@2x.png" />
       )}
 
-      {forecast.weather[0].description.includes("clouds") && (
+      {forecast.weather[0].description === "scattered clouds" && (
         <img src="http://openweathermap.org/img/wn/03d@2x.png" />
+      )}
+
+      {forecast.weather[0].description === "overcast clouds" && (
+        <img src="http://openweathermap.org/img/wn/04d@2x.png" />
+      )}
+
+      {forecast.weather[0].description === "broken clouds" && (
+        <img src="http://openweathermap.org/img/wn/04d@2x.png" />
+      )}
+
+      {forecast.weather[0].description === "thunderstorm" && (
+        <img src="http://openweathermap.org/img/wn/11d@2x.png" />
+      )}
+      {forecast.weather[0].description === "mist" && (
+        <img src="http://openweathermap.org/img/wn/50d@2x.png" />
       )}
 
       <p>{forecast.weather[0].description}</p>
