@@ -63,29 +63,29 @@ const Home = () => {
           />
         </div>
       ) : (
-        <div className="home">
+        <article className="home">
           <h1>LOCAL WEATHER</h1>
 
-          <div className="data">
+          <section className="data">
             {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
             {weatherData && (
               <>
-                <h3>{Math.round(weatherData.main.temp)} °C</h3>
+                <h2>{Math.round(weatherData.main.temp)} °C</h2>
                 <p>{weatherData.weather[0].description}</p>
                 <p>feels like {Math.round(weatherData.main.feels_like)} °C </p>
                 <p>humidity: {weatherData.main.humidity} % </p>
               </>
             )}
-          </div>
-          <div className="buttons">
+          </section>
+          <section className="buttons">
             <Link to={`/city`}>
               <button>Change city</button>
             </Link>
             <Link to={`/localForecast`}>
               <button>Forecast</button>
             </Link>
-          </div>
-        </div>
+          </section>
+        </article>
       )}
     </>
   );

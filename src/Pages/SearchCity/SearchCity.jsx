@@ -33,6 +33,17 @@ const SearchCity = () => {
 
   return (
     <article className="weatherApp">
+      {weatherData && (
+        <section className="data">
+          <h1 className="name">{weatherData.name}</h1>
+          {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
+          <h2 className="temp">{Math.round(weatherData.main.temp)} °C</h2>
+          <p>{weatherData.weather[0].description}</p>
+          <p>feels like {Math.round(weatherData.main.feels_like)} °C </p>
+          <p>humidity: {weatherData.main.humidity} % </p>
+        </section>
+      )}
+
       <section className="selectCity">
         <Link to={`/`}>
           <button>Local weather</button>
@@ -46,17 +57,6 @@ const SearchCity = () => {
           ))}
         </select>
       </section>
-
-      {weatherData && (
-        <section className="data">
-          <h3>{weatherData.name}</h3>
-          {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
-          <h3 className="temp">{Math.round(weatherData.main.temp)} °C</h3>
-          <p>{weatherData.weather[0].description}</p>
-          <p>feels like {Math.round(weatherData.main.feels_like)} °C </p>
-          <p>humidity: {weatherData.main.humidity} % </p>
-        </section>
-      )}
     </article>
   );
 };

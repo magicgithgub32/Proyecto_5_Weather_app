@@ -1,6 +1,7 @@
 export const CityData = [
   {
     city: "London",
+    image: "./assets/london.png",
     lat: 51.5074,
     lon: -0.1278,
   },

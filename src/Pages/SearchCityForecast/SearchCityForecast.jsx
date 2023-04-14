@@ -57,7 +57,8 @@ const SearchCityForecast = () => {
       </section>
 
       <section className="dataForecastTitle">
-        <h2>{selectedCity}</h2>
+        <h2 className="selectedCity">{selectedCity}</h2>
+        {/* <img src="{selectedCity.image} alt=London" /> */}
       </section>
       <section className="dataForecast">
         {forecastData ? (

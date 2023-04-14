@@ -3,13 +3,14 @@
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: flex-start;
-padding-top: 3rem;
+justify-content: space-evenly;
 height: 100vh;
 width: 100vw;
-gap: 3rem;
 background-image: url(https://res.cloudinary.com/dxxkog06n/image/upload/v1680931300/white-cloud-blue-sky_wgxtcm.jpg);
 background-size: cover;
+}
+.selectedCity {
+    font-size: 50px;
 }
 
 .selectCityForecastbuttons {
@@ -19,6 +20,13 @@ background-size: cover;
 
 .dataForecast {
     display: flex;
-    gap: 3rem;
     align-items: flex-start;
 }
+
+@media screen and(max-width: 768px) {
+    .searchCityForecast {
+        gap: 0;
+    }
+    
+  } 
+    
