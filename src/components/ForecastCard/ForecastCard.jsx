@@ -45,6 +45,9 @@ const ForecastCard = ({ forecast }) => {
       {forecast.weather[0].description === "mist" && (
         <img src="http://openweathermap.org/img/wn/50d@2x.png" />
       )}
+      {forecast.weather[0].description === "few clouds" && (
+        <img src="http://openweathermap.org/img/wn/02d@2x.png" />
+      )}
 
       <p>{forecast.weather[0].description}</p>
     </div>
