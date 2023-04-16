@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CityData } from "../../Data/CityData";
 import ForecastCard from "../../components/ForecastCard/ForecastCard";
+import SelectCity from "../../components/SelectCity/SelectCity";
 
 const SearchCityForecast = () => {
   const [selectedCity, setSelectedCity] = useState();
@@ -45,20 +46,14 @@ const SearchCityForecast = () => {
         <Link to={`/localForecast`}>
           <button>Local Forecast</button>
         </Link>
-        <select value={selectedCity} onChange={handleInput}>
-          <option value="">Select a city</option>
-
-          {CityData.map((city, index) => (
-            <option key={index} value={city.city}>
-              {city.city}
-            </option>
-          ))}
-        </select>
+        <SelectCity
+          selectedCity={selectedCity}
+          handleInput={handleInput}
+          CityData={CityData}
+        />
       </section>
-
       <section className="dataForecastTitle">
         <h2 className="selectedCity">{selectedCity}</h2>
-        {/* <img src="{selectedCity.image} alt=London" /> */}
       </section>
       <section className="dataForecast">
         {forecastData ? (

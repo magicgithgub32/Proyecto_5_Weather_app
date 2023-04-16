@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CityData } from "../../Data/CityData";
 import WeatherData from "../../components/WeatherData/WeatherData";
+import SelectCity from "../../components/SelectCity/SelectCity";
 
 const SearchCity = () => {
   const [selectedCity, setSelectedCity] = useState();
@@ -42,19 +43,15 @@ const SearchCity = () => {
           <WeatherData weatherData={weatherData} />
         </section>
       )}
-
       <section className="selectCity">
         <Link to={`/`}>
           <button>Local weather</button>
         </Link>
-        <select value={selectedCity} onChange={handleInput}>
-          <option value="">Select a city</option>
-          {CityData.map((city, index) => (
-            <option key={index} value={city.city}>
-              {city.city}
-            </option>
-          ))}
-        </select>
+        <SelectCity
+          selectedCity={selectedCity}
+          handleInput={handleInput}
+          CityData={CityData}
+        />
       </section>
     </article>
   );

@@ -46,8 +46,6 @@ const LocalForecast = () => {
         return forecast;
       }
     });
-    console.log(filteredData);
-
     setForecastData(filteredData);
   };
 
@@ -58,7 +56,7 @@ const LocalForecast = () => {
   }, [location]);
 
   return (
-    <>
+    <article>
       {!located ? (
         <div className="geo">
           <p>
@@ -85,14 +83,14 @@ const LocalForecast = () => {
           <section className="buttons">
             <Link to={`/searchCityForecast`}>
               <button>Change city</button>
-              <Link to={`/`}>
-                <button>Back Home</button>
-              </Link>
+            </Link>
+            <Link to={`/`}>
+              <button>Back Home</button>
             </Link>
           </section>
         </section>
       )}
-    </>
+    </article>
   );
 };
 

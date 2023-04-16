@@ -6,7 +6,6 @@ import WeatherData from "../../components/WeatherData/WeatherData";
 const Home = () => {
   const [iconCode, setIconCode] = useState("");
   const [weatherData, setWeatherData] = useState();
-
   const [location, setLocation] = useState();
   const [located, setLocated] = useState();
 
