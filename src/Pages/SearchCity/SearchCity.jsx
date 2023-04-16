@@ -2,6 +2,7 @@ import "./SearchCity.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CityData } from "../../Data/CityData";
+import WeatherData from "../../components/WeatherData/WeatherData";
 
 const SearchCity = () => {
   const [selectedCity, setSelectedCity] = useState();
@@ -37,10 +38,8 @@ const SearchCity = () => {
         <section className="data">
           <h1 className="name">{weatherData.name}</h1>
           {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
-          <h2 className="temp">{Math.round(weatherData.main.temp)} °C</h2>
-          <p>{weatherData.weather[0].description}</p>
-          <p>feels like {Math.round(weatherData.main.feels_like)} °C </p>
-          <p>humidity: {weatherData.main.humidity} % </p>
+
+          <WeatherData weatherData={weatherData} />
         </section>
       )}
 

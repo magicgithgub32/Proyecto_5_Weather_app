@@ -1,6 +1,7 @@
 import "./Home.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import WeatherData from "../../components/WeatherData/WeatherData";
 
 const Home = () => {
   const [iconCode, setIconCode] = useState("");
@@ -68,14 +69,8 @@ const Home = () => {
 
           <section className="data">
             {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
-            {weatherData && (
-              <>
-                <h2>{Math.round(weatherData.main.temp)} °C</h2>
-                <p>{weatherData.weather[0].description}</p>
-                <p>feels like {Math.round(weatherData.main.feels_like)} °C </p>
-                <p>humidity: {weatherData.main.humidity} % </p>
-              </>
-            )}
+
+            {weatherData && <WeatherData weatherData={weatherData} />}
           </section>
           <section className="buttons">
             <Link to={`/city`}>
