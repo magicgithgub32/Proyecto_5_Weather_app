@@ -34,7 +34,6 @@ const SearchCityForecast = () => {
           }
         });
         setForecastData(filteredData);
-        console.log(filteredData);
       }
     };
     getData();
