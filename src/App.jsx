@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import SearchCity from "./Pages/SearchCity/SearchCity";
-import LocalForecast from "./Pages/LocalForeCast/LocalForeCast";
+import LocalForecast from "./Pages/LocalForecast/LocalForecast";
 import SearchCityForecast from "./Pages/SearchCityForecast/SearchCityForecast";
 
 import "./App.css";
