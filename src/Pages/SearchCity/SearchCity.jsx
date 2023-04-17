@@ -10,7 +10,6 @@ const VITE_API_KEY = "24988b61f758c7f57d22813264c36866";
 const SearchCity = () => {
   const [selectedCity, setSelectedCity] = useState();
   const [weatherData, setWeatherData] = useState();
-  const [iconCode, setIconCode] = useState("");
 
   const handleInput = (ev) => {
     setSelectedCity(ev.target.value);
@@ -42,21 +41,16 @@ const SearchCity = () => {
         );
         const res = await response.json();
         setWeatherData(res);
-        setIconCode(res.weather[0].icon);
       }
     };
     getData();
   }, [selectedCity]);
-
-  const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
 
   return (
     <article className="weatherApp">
       {weatherData && (
         <section className="data">
           <h1 className="name">{weatherData.name}</h1>
-          {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
-
           <WeatherData weatherData={weatherData} />
         </section>
       )}

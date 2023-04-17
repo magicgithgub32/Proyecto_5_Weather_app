@@ -6,7 +6,6 @@ import WeatherData from "../../components/WeatherData/WeatherData";
 const VITE_API_KEY = "24988b61f758c7f57d22813264c36866";
 
 const Home = () => {
-  const [iconCode, setIconCode] = useState("");
   const [weatherData, setWeatherData] = useState();
   const [location, setLocation] = useState();
   const [located, setLocated] = useState();
@@ -50,8 +49,6 @@ const Home = () => {
     );
     const res = await response.json();
 
-    setIconCode(res.weather[0].icon);
-
     setWeatherData(res);
   };
 
@@ -60,8 +57,6 @@ const Home = () => {
       getData(location.lat, location.lon);
     }
   }, [location]);
-
-  const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
 
   return (
     <>
@@ -80,8 +75,6 @@ const Home = () => {
           <h1>LOCAL WEATHER</h1>
 
           <section className="data">
-            {iconUrl && <img src={iconUrl} alt="weather icon"></img>}
-
             {weatherData && <WeatherData weatherData={weatherData} />}
           </section>
           <section className="buttons">
