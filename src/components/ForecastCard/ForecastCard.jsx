@@ -16,37 +16,37 @@ const ForecastCard = ({ forecast }) => {
       <h3>{Math.round(forecast.main.temp)}°C</h3>
 
       {forecast.weather[0].description.includes("rain") && (
-        <img src="http://openweathermap.org/img/wn/10d@2x.png" />
+        <img src="https://res.cloudinary.com/dxxkog06n/image/upload/v1681715404/10d_2x_vgcua1.png" />
       )}
 
       {forecast.weather[0].description.includes("snow") && (
-        <img src="http://openweathermap.org/img/wn/13d@2x.png" />
+        <img src="https://res.cloudinary.com/dxxkog06n/image/upload/v1681715420/13d_2x_syhngk.png" />
       )}
 
       {forecast.weather[0].description.includes("clear") && (
-        <img src="http://openweathermap.org/img/wn/01d@2x.png" />
+        <img src="https://res.cloudinary.com/dxxkog06n/image/upload/v1681715420/01d_2x_wxlm3r.png" />
       )}
 
       {forecast.weather[0].description === "scattered clouds" && (
-        <img src="http://openweathermap.org/img/wn/03d@2x.png" />
+        <img src="https://res.cloudinary.com/dxxkog06n/image/upload/v1681715403/03d_2x_ypj7yd.png" />
       )}
 
       {forecast.weather[0].description === "overcast clouds" && (
-        <img src="http://openweathermap.org/img/wn/04d@2x.png" />
+        <img src="https://res.cloudinary.com/dxxkog06n/image/upload/v1681715403/04d_2x_wxcxue.png" />
       )}
 
       {forecast.weather[0].description === "broken clouds" && (
-        <img src="http://openweathermap.org/img/wn/04d@2x.png" />
+        <img src="https://res.cloudinary.com/dxxkog06n/image/upload/v1681715403/04d_2x_wxcxue.png" />
       )}
 
       {forecast.weather[0].description === "thunderstorm" && (
-        <img src="http://openweathermap.org/img/wn/11d@2x.png" />
+        <img src="https://res.cloudinary.com/dxxkog06n/image/upload/v1681715420/11d_2x_j12xgy.png" />
       )}
       {forecast.weather[0].description === "mist" && (
-        <img src="http://openweathermap.org/img/wn/50d@2x.png" />
+        <img src="https://res.cloudinary.com/dxxkog06n/image/upload/v1681715403/50d_2x_qz3ad8.png" />
       )}
       {forecast.weather[0].description === "few clouds" && (
-        <img src="http://openweathermap.org/img/wn/02d@2x.png" />
+        <img src="https://res.cloudinary.com/dxxkog06n/image/upload/v1681715404/02d_2x_ziopt4.png" />
       )}
 
       <p>{forecast.weather[0].description}</p>
