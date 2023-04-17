@@ -4,7 +4,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-gap: 3rem;
+gap: 1.5rem;
 height: 100vh;
 width: 100vw;
 background-image: url(https://res.cloudinary.com/dxxkog06n/image/upload/v1680931300/white-cloud-blue-sky_wgxtcm.jpg);
