@@ -16,6 +16,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  overflow: hidden;
+}
+
 h1, h2, h3, h4, p, button, select {
   background: var(--highlight-gradient);
   -webkit-background-clip: text;
