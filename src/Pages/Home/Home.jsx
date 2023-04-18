@@ -13,12 +13,9 @@ const Home = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        const latLon = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        };
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
+        const latLon = { lat, lon };
         setLocated(true);
         setLocation(latLon);
       },
@@ -81,6 +78,7 @@ const Home = () => {
             <Link to={`/city`}>
               <button>Change city</button>
             </Link>
+
             <Link to={`/localForecast`}>
               <button>Forecast</button>
             </Link>
